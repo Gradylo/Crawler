@@ -29,18 +29,19 @@ public class Phantomjs {
 		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
 
 		// 设置隐性等待（作用于全局）
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		// 打开页面
-		driver.get("https://l.facebook.com/l.php?u=http%3A%2F%2Fwww.meru.com.tw%2Fmobile%2Fproduct.php%3Fpid_for_show%3D5450&h=ATPfN7vxgjJVRT3iZlQAB2kIDCjqrPdZGjYUgxvI5jBdTm4sX-ezLVO6oMvGaepoWsu1NoDH5IJpPuh8WQ_0FNAqp5RZayiz0GzKYB5uSuZhpMHgKRHhv3tibdOHuUgQFMXJG5Tw-oKvjkkXoemn-eaDUHwurwLGyzH0f1dZJVFchup5HznCLSfY4ueANmM9Ntb647yqo4HArulEO4zWkbOl_USROH7LQ4-sUlFg910JUYdeuvoARFmqfIe9fK3HLyFCOa3QSzeDh3RSOv0eaPRBl7KXGVEU");
+		driver.get("http://music.163.com/#/playlist?id=731629965");
 		try {
 			// 查找元素
-			Thread.sleep(10000);
+			Thread.sleep(12000);
 			//输出html内容
-			WebElement webElement = driver.findElement(By.xpath("html"));
-			System.out.println(webElement.getAttribute("outerHTML"));
-//			 WebElement element = driver.findElement(By.id("content"));
-//			 System.out.println(element.getText());
-//			 System.out.println(element.getText());
+//			 WebElement webElement = webDriver.findElement(By.xpath("/html"));
+//		     System.out.println(webElement.getAttribute("outerHTML"));
+			
+	        driver.switchTo().frame("g-iframe");
+			 WebElement element = driver.findElement(By.id("song-list-pre-cache"));
+			 System.out.println(element.getText());
 			//
 			// WebElement we1 = element
 			// .findElement(By.className("rate-paginator"));
